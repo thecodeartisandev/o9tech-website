@@ -109,7 +109,7 @@ export const projects = [
     built: 'We worked on the iOS app, building route planning, GPX import and export, multi-day trip support, and live weather, elevation and terrain data.',
     features: ['100,000+ trails with campsites, huts and water points', 'Topo layers from OS, USGS and IGN, viewable in 3D', 'Multi-day planner with stages and alternate routes', 'Free offline map downloads for areas with no signal', 'Live location sharing and off-route alerts'],
     links: { ios: 'https://apps.apple.com/us/app/hiiker-the-hiking-maps-app/id1470810597', play: 'https://play.google.com/store/apps/details?id=com.waymarkedtrails.hiiker', web: 'https://hiiker.app' },
-    icon: W('hiiker', 'icon.webp'), visual: { type: 'phone', images: shots('hiiker', 4) }, featured: true,
+    icon: W('hiiker', 'icon.webp'), visual: { type: 'gallery', images: shots('hiiker', 4), cover: W('hiiker', 'cover-screens.webp') }, featured: true,
   },
   {
     slug: 'beyonmoney', page: 'portfolio-beyonmoney.html', name: 'Beyon Money', fullName: 'Beyon Money',
@@ -301,7 +301,7 @@ export const projects = [
     built: 'We built the iOS app in Swift and UIKit on PlivoVoiceKit, and added multi-account switching so one person can run calls and texts for more than one business.',
     features: ['Business calls from a dedicated number', 'Shared business texting inbox', 'Voicemail sorted by extension', 'Switch between businesses in one app', 'Call routing menus and dark mode'],
     links: { ios: 'https://apps.apple.com/us/app/officetree-phone/id6444354321', play: 'https://play.google.com/store/apps/details?id=com.officetree.phone', web: 'https://officetree.com/phone.html' },
-    icon: W('officetree', 'icon.webp'), visual: { type: 'phone', images: shots('officetree', 4) },
+    icon: W('officetree', 'icon.webp'), visual: { type: 'gallery', images: shots('officetree', 4), cover: W('officetree', 'cover-screens.webp') },
   },
   {
     slug: 'reserval', page: 'portfolio-reserval.html', name: 'Reserval', fullName: 'Reserval',
@@ -349,7 +349,7 @@ export const projects = [
     built: 'We built the React Native app for Android and iOS on a Node.js backend: custom themes, smart reminders, habit tracking and performance tuning.',
     features: ['Daily routine planning', 'Habit tracking with goals', 'Smart reminder notifications', 'Custom themes'],
     links: {},
-    icon: null, visual: { type: 'phone', images: [W('up-routinsie', 'c6ceb3f7.webp'), W('up-routinsie', 'fee11a82.webp'), W('up-routinsie', '5639ca6b.webp')], cover: W('up-routinsie', 'cover.webp') },
+    icon: null, visual: { type: 'gallery', images: [W('up-routinsie', 'c6ceb3f7.webp'), W('up-routinsie', 'fee11a82.webp'), W('up-routinsie', '5639ca6b.webp')], cover: W('up-routinsie', 'cover-screens.webp') },
   },
   {
     slug: 'mealsmash', page: 'portfolio-mealsmash.html', name: 'MealSmash', fullName: 'MealSmash',
@@ -361,7 +361,7 @@ export const projects = [
     built: 'We built the Android app in Flutter, focused on smooth navigation, real-time order tracking and clean API integration.',
     features: ['Browse local restaurants', 'Simple ordering flow', 'Real-time delivery tracking', 'Firebase-backed notifications'],
     links: { play: 'https://play.google.com/store/apps/details?id=com.mealsmash.customer' },
-    icon: null, visual: { type: 'phone', images: [W('up-mealsmash', '34472740.webp'), W('up-mealsmash', '5f5a3ba0.webp'), W('up-mealsmash', '9576846e.webp')], cover: W('up-mealsmash', 'cover.webp') },
+    icon: null, visual: { type: 'gallery', images: [W('up-mealsmash', '34472740.webp'), W('up-mealsmash', '5f5a3ba0.webp'), W('up-mealsmash', '9576846e.webp')], cover: W('up-mealsmash', 'cover-screens.webp') },
   },
   {
     slug: 'ziply', page: 'portfolio-ziply.html', name: 'Ziply', fullName: 'Ziply On-Demand',
@@ -373,7 +373,7 @@ export const projects = [
     built: 'We built the native iOS and Android apps on a Node.js backend, from ordering and pickup to live delivery status.',
     features: ['Place a delivery in a few taps', 'Pickup within an hour', 'Live delivery status', 'Small and large packages'],
     links: {},
-    icon: null, visual: { type: 'phone', images: [W('up-ziply', '697da826.webp'), W('up-ziply', '11e6aa70.webp'), W('up-ziply', '29076773.webp')], cover: W('up-ziply', 'cover.webp') },
+    icon: null, visual: { type: 'gallery', images: [W('up-ziply', '697da826.webp'), W('up-ziply', '11e6aa70.webp'), W('up-ziply', '29076773.webp')], cover: W('up-ziply', 'cover-screens.webp') },
   },
   {
     slug: 'courier', page: 'portfolio-courier.html', name: 'Courier Platform', fullName: 'Courier Logistics Platform',
@@ -409,7 +409,7 @@ export const projects = [
     built: 'We built the Android app in Kotlin and Java, turning the whole measure-and-order process into one simple booking.',
     features: ['Pin your location and request a visit', 'Pick a day and time slot', 'Saved measurements for one-tap reorders', 'Order status tracking', 'Delivery to your door'],
     links: { ios: 'https://apps.apple.com/sa/app/id1237641602', play: 'https://play.google.com/store/apps/details?id=com.thawbk.userapp', web: 'https://app.thoubak.com/' },
-    icon: W('thoubak', 'icon.webp'), visual: { type: 'phone', images: shots('thoubak', 3) },
+    icon: W('thoubak', 'icon.webp'), visual: { type: 'gallery', images: shots('thoubak', 3), cover: W('thoubak', 'cover-screens.webp') },
   },
   {
     slug: 'gravel', page: 'portfolio-gravel.html', name: 'Gravel', fullName: 'Gravel Parking',
