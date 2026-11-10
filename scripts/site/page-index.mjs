@@ -93,6 +93,8 @@ export function indexPage() {
     title: 'App, Web, Data & AI Development Company in Pakistan | o9Tech',
     description: 'o9Tech is a software studio in Lahore, Pakistan, founded in 2022. We build iOS and Android apps, web platforms, data pipelines and AI features for clients.',
     jsonld,
+    // Google Search Console ownership check (homepage only)
+    extraHead: '<meta name="google-site-verification" content="WCfcCF-UrqVRoGm8XY8qfQA3bz6nL6oS6iWFSkdYP9M" />',
   })}
 <body>
 ${nav()}

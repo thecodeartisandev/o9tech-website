@@ -182,7 +182,7 @@ export function caseCard(p, i) {
 }
 
 // Page shell
-export function head({ title, description, path = '', image = 'assets/o9/img/og.jpg', jsonld = '', noindex = false }) {
+export function head({ title, description, path = '', image = 'assets/o9/img/og.jpg', jsonld = '', noindex = false, extraHead = '' }) {
   const url = `${site.url}/${path}`;
   return `<!DOCTYPE html>
 <html lang="en">
@@ -207,7 +207,7 @@ ${noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" hr
 <link rel="preload" href="/assets/o9/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/o9/css/site.css?v=${BUILD_ID}">
 <script>document.documentElement.classList.add('js')</script>
-${jsonld}
+${extraHead ? `${extraHead}\n` : ''}${jsonld}
 </head>`;
 }
 
