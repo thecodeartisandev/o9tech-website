@@ -504,9 +504,10 @@ body.menu-open { overflow: hidden; }
 .case-card:hover .ph-a { transform: translateY(-14px); }
 .case-card:hover .ph-b { transform: translate(-10px, -6px); }
 .case-card:hover .ph-c { transform: translate(10px, -6px); }
-.is-feature .case-visual .device-phone { width: 24%; }
-.is-feature .case-visual .ph-b { translate: -150% 0; }
-.is-feature .case-visual .ph-c { translate: 50% 0; }
+/* Wide featured cards show their phones in full instead of bleeding off the bottom edge. */
+.is-feature .case-visual .device-phone { width: 22%; bottom: 7%; }
+.is-feature .case-visual .ph-b { translate: -138% 0; bottom: 5%; }
+.is-feature .case-visual .ph-c { translate: 38% 0; bottom: 5%; }
 .case-visual .device-browser { position: absolute; left: 8%; right: 8%; top: 12%; transition: transform .6s var(--ease-out); }
 .case-card:hover .device-browser { transform: translateY(-6px); }
 .case-visual .mockup-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease-out); }
