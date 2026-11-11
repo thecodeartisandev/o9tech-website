@@ -18,6 +18,7 @@ Contact: info@o9tech.com, +92 345 6259449. Office: Office No. 8, 3rd Floor, Abba
 
 - [Hue Pour](https://o9tech.com/hue-pour): A paint mixing puzzle where blue and yellow make green, like real paint.
 - [Pigeon Post](https://o9tech.com/pigeon-post): Send pigeons to real cities. They come home with postcards.
+- [Morning Wave](https://o9tech.com/morning-wave/): A daily check-in for elderly parents. They tap one button each morning, and the family is alerted if it doesn't come. No location tracking.
 
 ## Case studies
 

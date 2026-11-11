@@ -52,13 +52,13 @@ for (const [name, markup] of Object.entries(badges)) {
 
 // Sitemap, robots, redirects
 const today = new Date().toISOString().slice(0, 10);
-const urls = ['', 'hue-pour', 'privacy/hue-pour', 'pigeon-post', 'privacy/pigeon-post', ...[...services, ...projects].map((x) => x.page.replace(/\.html$/, ''))];
+const urls = ['', 'hue-pour', 'privacy/hue-pour', 'pigeon-post', 'privacy/pigeon-post', 'morning-wave/', 'morning-wave/privacy', 'morning-wave/terms', 'morning-wave/delete-account', ...[...services, ...projects].map((x) => x.page.replace(/\.html$/, ''))];
 // lastmod is the day a page's content last changed, not the build date. lastmod.json keeps a
 // hash of each page (without the cache-busting ?v= tags, which change with any style edit).
 const lastmodFile = join(here, 'lastmod.json');
 const lastmod = existsSync(lastmodFile) ? JSON.parse(readFileSync(lastmodFile, 'utf8')) : {};
 for (const u of urls) {
-  const file = join(ROOT, u === '' ? 'index.html' : `${u}.html`);
+  const file = join(ROOT, u === '' || u.endsWith('/') ? `${u}index.html` : `${u}.html`);
   const hash = createHash('sha1').update(readFileSync(file, 'utf8').replace(/\?v=[0-9a-f]{8}/g, '')).digest('hex').slice(0, 12);
   if (lastmod[u]?.hash !== hash) lastmod[u] = { hash, date: today };
 }
@@ -84,6 +84,7 @@ ${services.map((x) => `- [${x.title}](${link(x.page)}): ${x.lead}`).join('\n')}
 
 - [Hue Pour](${site.url}/hue-pour): ${huePour.line}
 - [Pigeon Post](${site.url}/pigeon-post): ${pigeonPost.line}
+- [Morning Wave](${site.url}/morning-wave/): A daily check-in for elderly parents. They tap one button each morning, and the family is alerted if it doesn't come. No location tracking.
 
 ## Case studies
 
