@@ -106,6 +106,10 @@ out('_redirects', `# Cloudflare Pages reads this file. It can only match paths, 
 # The first Pigeon Post build linked here. Pages applies these rules before files,
 # so Netlify's "301!" is not needed (and Pages would skip a line that has it).
 /pigeon-post/privacy-policy.html   /privacy/pigeon-post   301
+
+# Morning Wave invite links (/morning-wave/join/<token>#CODE) all show the one invite page.
+# The app opens these itself when installed (see .well-known); this is the browser fallback.
+/morning-wave/join/*   /morning-wave/join/   200
 `);
 
 console.log(`Built ${written.length} files (${projects.length} case studies, ${services.length} services).`);

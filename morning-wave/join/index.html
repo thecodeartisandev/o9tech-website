@@ -1,0 +1,195 @@
+<!doctype html>
+<!--
+  The invite landing page (flow H, step 3).
+
+  "App not installed: the link opens a landing page with only 'You've been
+  invited to join a family circle on Morning Wave', the 8-character code and
+  store buttons. No parent name or photo on the web."
+
+  The code arrives in the link's fragment (#K7PX3MQA), which the browser keeps
+  to itself: it never reaches this server's logs. Nothing here asks a server
+  anything, loads a font, or runs a tracker — the page knows only what the
+  link already told it.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex">
+  <meta name="referrer" content="no-referrer">
+  <meta name="color-scheme" content="light dark">
+  <title>You're invited — Morning Wave</title>
+  <style>
+    /* Dawn, the caregiver's daylight and night-watch columns (section 14). */
+    :root {
+      --sky: linear-gradient(180deg, #F3EFFF 0%, #FFF4E8 55%, #FFFFFF 100%);
+      --glow-cool: rgba(170, 150, 255, .5);
+      --glow-warm: rgba(255, 186, 92, .55);
+      --glass: rgba(255, 255, 255, .82);
+      --border: rgba(27, 31, 59, .08);
+      --shadow: 0 14px 36px rgba(27, 31, 59, .08);
+      --ink: #1B1F3B;
+      --ink-secondary: #5A6080;
+      --code: linear-gradient(90deg, #D9480F, #9A2A00);
+      --pill: linear-gradient(135deg, #5B7CFF, #3B5BDB);
+      --on-pill: #FFFFFF;
+      --pill-glow: 0 12px 28px rgba(59, 91, 219, .3);
+      --secondary-pill: rgba(255, 255, 255, .82);
+      --secondary-border: rgba(27, 31, 59, .12);
+      --mark: url("/morning-wave/assets/mark-on-light.svg");
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --sky: linear-gradient(180deg, #0B1020 0%, #151B3B 55%, #0B1020 100%);
+        --glow-cool: rgba(91, 77, 255, .55);
+        --glow-warm: rgba(255, 122, 89, .38);
+        --glass: rgba(255, 255, 255, .07);
+        --border: rgba(255, 255, 255, .12);
+        --shadow: 0 20px 50px rgba(0, 0, 0, .28);
+        --ink: #F5F7FF;
+        --ink-secondary: #B4BCDC;
+        --code: linear-gradient(90deg, #FFE08A, #FF8A3D);
+        --pill: linear-gradient(135deg, #A8C4FF, #8FB4FF);
+        --on-pill: #0B1430;
+        --pill-glow: none;
+        --secondary-pill: rgba(255, 255, 255, .08);
+        --secondary-border: rgba(255, 255, 255, .18);
+        --mark: url("/morning-wave/assets/mark-on-dark.svg");
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      min-height: 100vh;
+      background: var(--sky);
+      color: var(--ink);
+      font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, system-ui, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      position: relative;
+      overflow-x: hidden;
+    }
+    body::before, body::after {
+      content: "";
+      position: fixed;
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      filter: blur(80px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    body::before { top: -160px; right: -120px; background: var(--glow-cool); }
+    body::after { bottom: -180px; left: -140px; background: var(--glow-warm); }
+
+    main {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 420px;
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 32px 24px 28px;
+      text-align: center;
+    }
+    .mark {
+      width: 88px;
+      height: 88px;
+      margin: 0 auto 18px;
+      background: var(--mark) center / contain no-repeat;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+      line-height: 1.2;
+    }
+    p { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.5; color: var(--ink-secondary); }
+    .code-block { margin: 24px 0 8px; }
+    .code {
+      display: inline-block;
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      background: var(--code);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-variant-numeric: tabular-nums;
+    }
+    .hint { font-size: 14px; font-weight: 700; margin-top: 4px; }
+    .stores { display: grid; gap: 12px; margin-top: 28px; }
+    .pill {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 56px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .primary { background: var(--pill); color: var(--on-pill); box-shadow: var(--pill-glow); }
+    .secondary { background: var(--secondary-pill); color: var(--ink); border: 1px solid var(--secondary-border); }
+    .pill:focus-visible { outline: 3px solid #3B5BDB; outline-offset: 3px; }
+    .footnote { margin-top: 20px; font-size: 13px; font-weight: 700; }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="mark" role="img" aria-label="Morning Wave"></div>
+    <h1>You've been invited to join a family circle on Morning Wave</h1>
+
+    <div class="code-block" id="with-code" hidden>
+      <p>Install the app, tap “I have an invite code” and enter:</p>
+      <div class="code" id="code" aria-live="polite"></div>
+      <p class="hint">The code works for 7 days.</p>
+    </div>
+
+    <div class="code-block" id="without-code">
+      <p>Install the app, tap “I have an invite code”, and ask whoever invited you for the 8-character code.</p>
+    </div>
+
+    <div class="stores">
+      <!-- Store listings are reserved but not live yet (section 18). The
+           App Store id is filled in when the record has one. -->
+      <a class="pill primary" id="app-store" href="https://apps.apple.com/app/morning-wave/id0000000000">Download on the App Store</a>
+      <a class="pill secondary" id="play-store" href="https://play.google.com/store/apps/details?id=com.o9tech.morningwave">Get it on Google Play</a>
+    </div>
+
+    <p class="footnote">Morning Wave is not a medical device or an emergency service.</p>
+  </main>
+
+  <script>
+    // The code from the fragment, if it is one this app could have written:
+    // 8 characters from the alphabet without look-alikes (section 16).
+    // Anything else is shown as nothing, never echoed back onto the page.
+    (function () {
+      var code = (location.hash || "").slice(1).toUpperCase();
+      if (!/^[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{8}$/.test(code)) return;
+      document.getElementById("code").textContent = code;
+      document.getElementById("with-code").hidden = false;
+      document.getElementById("without-code").hidden = true;
+    })();
+
+    // Put the phone's own store first.
+    (function () {
+      if (!/android/i.test(navigator.userAgent)) return;
+      var apple = document.getElementById("app-store");
+      var google = document.getElementById("play-store");
+      apple.className = "pill secondary";
+      google.className = "pill primary";
+      apple.parentNode.insertBefore(google, apple);
+    })();
+  </script>
+</body>
+</html>

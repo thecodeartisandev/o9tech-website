@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- Logo mark for light backgrounds (the morning sky, white, the invite landing page). Transparent. -->
+  <defs>
+    <radialGradient id="sun" cx="0.38" cy="0.32" r="0.75">
+      <stop offset="0" stop-color="#FFE08A"/>
+      <stop offset="0.55" stop-color="#FFB84D"/>
+      <stop offset="1" stop-color="#FF8A3D"/>
+    </radialGradient>
+  </defs>
+  <circle cx="512" cy="480" r="262" fill="url(#sun)"/>
+  <path d="M96 650 C 240 530, 384 530, 512 650 S 784 770, 928 650" fill="none" stroke="#3A2A6A" stroke-width="90" stroke-linecap="round"/>
+  <path d="M236 816 C 340 746, 430 746, 512 816 S 684 886, 788 816" fill="none" stroke="#3A2A6A" stroke-opacity="0.38" stroke-width="56" stroke-linecap="round"/>
+</svg>

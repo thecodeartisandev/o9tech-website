@@ -3,6 +3,21 @@
     "details": [
       {
         "appIDs": [
+          "AM8P283P5J.com.o9tech.morningwave"
+        ],
+        "components": [
+          {
+            "/": "/morning-wave/join/*",
+            "comment": "Morning Wave caregiver invite links"
+          },
+          {
+            "/": "/morning-wave/join",
+            "comment": "Morning Wave caregiver invite links"
+          }
+        ]
+      },
+      {
+        "appIDs": [
           "AM8P283P5J.com.o9tech.longdog"
         ],
         "components": [

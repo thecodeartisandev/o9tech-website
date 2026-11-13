@@ -5,6 +5,20 @@
     ],
     "target": {
       "namespace": "android_app",
+      "package_name": "com.o9tech.morningwave",
+      "sha256_cert_fingerprints": [
+        "A6:E2:74:C2:CB:EC:08:54:D1:05:C8:2E:61:5E:80:53:03:40:F7:1E:7C:C0:43:B8:FE:F1:12:C1:F3:64:BF:44",
+        "0F:FB:46:24:BE:2C:95:7E:A4:A2:E8:35:36:E4:6B:1C:7C:0B:87:68:99:BA:25:48:B7:C9:94:41:D5:06:D7:35",
+        "CD:46:A5:CE:BC:42:7E:DD:C1:F8:7F:F2:D6:66:E8:E3:ED:F1:34:7D:79:33:D2:00:BE:0C:4E:0A:80:B0:76:2C"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
       "package_name": "com.jst.longdog",
       "sha256_cert_fingerprints": [
         "E5:2C:8A:F0:E2:1B:9D:D2:AD:32:44:30:7D:A1:6B:75:2E:10:8B:23:5C:8C:E9:A2:BB:BB:1D:23:90:47:7A:EC",
