@@ -524,7 +524,7 @@ export const upworkStats = { jss: '100%', badge: 'Top Rated Plus', jobs: 64, hou
 // Hue Pour, our paint mixing puzzle game. Facts come from the Hue Pour ASO brief only.
 // Flip HUE_POUR_LIVE to true on launch day, then rebuild: the greyed "Coming soon"
 // badges become real links to the two store listings below.
-export const HUE_POUR_LIVE = false;
+export const HUE_POUR_LIVE = true;
 export const huePour = {
   appStore: 'https://apps.apple.com/app/id6820972811',
   googlePlay: 'https://play.google.com/store/apps/details?id=com.jst.hue_pour',
@@ -543,7 +543,7 @@ export const huePour = {
 // Pigeon Post, our idle pet game. Facts come from the Pigeon Post website prompt only.
 // Flip PIGEON_POST_LIVE to true on launch day, then rebuild: the greyed "Coming soon"
 // badges become real links to the two store listings below.
-export const PIGEON_POST_LIVE = false;
+export const PIGEON_POST_LIVE = true;
 export const pigeonPost = {
   appStore: 'https://apps.apple.com/app/id6820972418',
   googlePlay: 'https://play.google.com/store/apps/details?id=com.jst.pigeon_post',
