@@ -12,6 +12,7 @@
   link already told it.
 -->
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -38,6 +39,7 @@
       --secondary-border: rgba(27, 31, 59, .12);
       --mark: url("/morning-wave/assets/mark-on-light.svg");
     }
+
     @media (prefers-color-scheme: dark) {
       :root {
         --sky: linear-gradient(180deg, #0B1020 0%, #151B3B 55%, #0B1020 100%);
@@ -58,8 +60,16 @@
       }
     }
 
-    * { box-sizing: border-box; }
-    html, body { margin: 0; min-height: 100%; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+    }
+
     body {
       min-height: 100vh;
       background: var(--sky);
@@ -73,7 +83,9 @@
       position: relative;
       overflow-x: hidden;
     }
-    body::before, body::after {
+
+    body::before,
+    body::after {
       content: "";
       position: fixed;
       width: 380px;
@@ -83,8 +95,18 @@
       z-index: 0;
       pointer-events: none;
     }
-    body::before { top: -160px; right: -120px; background: var(--glow-cool); }
-    body::after { bottom: -180px; left: -140px; background: var(--glow-warm); }
+
+    body::before {
+      top: -160px;
+      right: -120px;
+      background: var(--glow-cool);
+    }
+
+    body::after {
+      bottom: -180px;
+      left: -140px;
+      background: var(--glow-warm);
+    }
 
     main {
       position: relative;
@@ -98,12 +120,14 @@
       padding: 32px 24px 28px;
       text-align: center;
     }
+
     .mark {
       width: 88px;
       height: 88px;
       margin: 0 auto 18px;
       background: var(--mark) center / contain no-repeat;
     }
+
     h1 {
       margin: 0 0 8px;
       font-size: 26px;
@@ -111,8 +135,19 @@
       letter-spacing: -0.4px;
       line-height: 1.2;
     }
-    p { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.5; color: var(--ink-secondary); }
-    .code-block { margin: 24px 0 8px; }
+
+    p {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.5;
+      color: var(--ink-secondary);
+    }
+
+    .code-block {
+      margin: 24px 0 8px;
+    }
+
     .code {
       display: inline-block;
       font-size: 36px;
@@ -124,8 +159,19 @@
       color: transparent;
       font-variant-numeric: tabular-nums;
     }
-    .hint { font-size: 14px; font-weight: 700; margin-top: 4px; }
-    .stores { display: grid; gap: 12px; margin-top: 28px; }
+
+    .hint {
+      font-size: 14px;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    .stores {
+      display: grid;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
     .pill {
       display: flex;
       align-items: center;
@@ -137,13 +183,36 @@
       font-weight: 800;
       text-decoration: none;
     }
-    .primary { background: var(--pill); color: var(--on-pill); box-shadow: var(--pill-glow); }
-    .secondary { background: var(--secondary-pill); color: var(--ink); border: 1px solid var(--secondary-border); }
-    .pill:focus-visible { outline: 3px solid #3B5BDB; outline-offset: 3px; }
-    .footnote { margin-top: 20px; font-size: 13px; font-weight: 700; }
-    [hidden] { display: none !important; }
+
+    .primary {
+      background: var(--pill);
+      color: var(--on-pill);
+      box-shadow: var(--pill-glow);
+    }
+
+    .secondary {
+      background: var(--secondary-pill);
+      color: var(--ink);
+      border: 1px solid var(--secondary-border);
+    }
+
+    .pill:focus-visible {
+      outline: 3px solid #3B5BDB;
+      outline-offset: 3px;
+    }
+
+    .footnote {
+      margin-top: 20px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
   </style>
 </head>
+
 <body>
   <main>
     <div class="mark" role="img" aria-label="Morning Wave"></div>
@@ -160,10 +229,11 @@
     </div>
 
     <div class="stores">
-      <!-- Store listings are reserved but not live yet (section 18). The
-           App Store id is filled in when the record has one. -->
-      <a class="pill primary" id="app-store" href="https://apps.apple.com/app/morning-wave/id6822160712">Download on the App Store</a>
-      <a class="pill secondary" id="play-store" href="https://play.google.com/store/apps/details?id=com.o9tech.morningwave">Get it on Google Play</a>
+      <a class="pill primary" id="open-app" href="morningwave://join">Open Morning Wave App</a> <a
+        class="pill secondary" id="app-store" href="https://apps.apple.com/app/morning-wave/id6822160712">Download on
+        the App Store</a>
+      <a class="pill secondary" id="play-store"
+        href="https://play.google.com/store/apps/details?id=com.o9tech.morningwave">Get it on Google Play</a>
     </div>
 
     <p class="footnote">Morning Wave is not a medical device or an emergency service.</p>
@@ -174,11 +244,85 @@
     // 8 characters from the alphabet without look-alikes (section 16).
     // Anything else is shown as nothing, never echoed back onto the page.
     (function () {
+      var codePattern = /^[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{8}$/;
+      var tokenPattern = /^[0-9a-f]{64}$/;
+
       var code = (location.hash || "").slice(1).toUpperCase();
-      if (!/^[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{8}$/.test(code)) return;
-      document.getElementById("code").textContent = code;
-      document.getElementById("with-code").hidden = false;
-      document.getElementById("without-code").hidden = true;
+      var validCode = codePattern.test(code) ? code : "";
+
+      if (validCode) {
+        document.getElementById("code").textContent = validCode;
+        document.getElementById("with-code").hidden = false;
+        document.getElementById("without-code").hidden = true;
+      }
+
+      // Wire custom app scheme (morningwave://) and attempt auto-open on mobile
+      var segments = window.location.pathname.split("/").filter(Boolean);
+      var rawToken = segments.length > 0 ? segments[segments.length - 1] : "";
+      var validToken = tokenPattern.test(rawToken) ? rawToken : "";
+      var hash = validCode ? "#" + validCode : (location.hash || "");
+      var customSchemeUrl = "morningwave://join/" + rawToken + hash;
+
+      var openAppBtn = document.getElementById("open-app");
+      if (openAppBtn) {
+        openAppBtn.href = customSchemeUrl;
+      }
+
+      // Deferred deep link via clipboard: when the user taps App Store or
+      // Google Play, copy our structured invite payload so Morning Wave
+      // automatically picks it up on first launch after installation.
+      var clipboardPayload = validToken
+        ? "https://o9tech.com/morning-wave/join/" + validToken + (validCode ? "#" + validCode : "")
+        : (validCode ? "morningwave:invite:" + validCode : "");
+
+      function copyFallback(text) {
+        try {
+          var ta = document.createElement("textarea");
+          ta.value = text;
+          ta.setAttribute("readonly", "");
+          ta.style.position = "fixed";
+          ta.style.opacity = "0";
+          document.body.appendChild(ta);
+          ta.focus();
+          ta.select();
+          document.execCommand("copy");
+          document.body.removeChild(ta);
+        } catch (_) { }
+      }
+
+      function copyInviteAndNavigate(event) {
+        if (!clipboardPayload) return;
+        event.preventDefault();
+        var targetUrl = event.currentTarget.href;
+        var navigated = false;
+        function go() {
+          if (navigated) return;
+          navigated = true;
+          window.location.href = targetUrl;
+        }
+        // Fallback timeout so store navigation is never blocked
+        setTimeout(go, 250);
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(clipboardPayload).then(go, function () {
+            copyFallback(clipboardPayload);
+            go();
+          });
+        } else {
+          copyFallback(clipboardPayload);
+          go();
+        }
+      }
+
+      var appStoreBtn = document.getElementById("app-store");
+      var playStoreBtn = document.getElementById("play-store");
+      if (appStoreBtn) appStoreBtn.addEventListener("click", copyInviteAndNavigate);
+      if (playStoreBtn) playStoreBtn.addEventListener("click", copyInviteAndNavigate);
+
+      if (/iphone|ipad|ipod|android/i.test(navigator.userAgent)) {
+        setTimeout(function () {
+          window.location.href = customSchemeUrl;
+        }, 400);
+      }
     })();
 
     // Put the phone's own store first.
@@ -192,4 +336,5 @@
     })();
   </script>
 </body>
+
 </html>
